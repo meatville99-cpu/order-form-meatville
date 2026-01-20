@@ -199,7 +199,23 @@
                 <tbody>
                   {rows.map((r, i) => (
                     <tr key={i}>
-                      <td className="col-item">{r.leftItem}</td>
+                     <td
+  className={
+    "col-item " +
+    (
+      r.leftItem === "LIVER" ||
+      r.leftItem === "LAMB" ||
+      r.leftItem === "MINCE" ||
+      r.leftItem === "PICKLED ROLLS" ||
+      (r.leftItem === "TURKEY" && LEFT_ITEMS[i - 1] === "FEET")
+    ? "section"
+    : ""
+    )
+  }
+>
+  {r.leftItem}
+</td>
+
 
                       <td className="col-qty">
                         <input
@@ -216,7 +232,21 @@
                         />
                       </td>
 
-                      <td className="col-item">{r.rightItem}</td>
+                    <td
+  className={
+    "col-item " +
+    (
+      r.rightItem === "LIVER" ||
+      r.rightItem === "LAMB" ||
+      r.rightItem === "MINCE" ||
+      r.rightItem === "PICKLED ROLLS"
+    ? "section"
+    : ""
+    )
+  }
+>
+  {r.rightItem}
+</td>
 
                       <td className="col-qty">
                         <input
